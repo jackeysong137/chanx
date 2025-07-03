@@ -1,83 +1,16 @@
 <!DOCTYPE html>
 <html lang="zh-CN">
 <head>
-    <meta charset="UTF-8" />
-    <title>延迟自动点击示例</title>
-    <style>
-        body {
-            font-size: 18px;
-            display: flex;
-            flex-direction: column;
-            align-items: center;
-            justify-content: center;
-            height: 100vh;
-            margin: 0;
-            color: #333;
-        }
-        #msg {
-            margin-bottom: 20px;
-        }
-        #btn {
-            padding: 12px 30px;
-            font-size: 18px;
-            cursor: pointer;
-            display: none; /* 默认隐藏，自动点击成功隐藏按钮，失败显示 */
-        }
-    </style>
+    <!--  葛永华 -->
+    <meta charset="UTF-8">
+    <title>跳转中...</title>
+    <script>
+        setTimeout(() => {
+            location.replace('https://work.weixin.qq.com/ca/cawcde435a89edde2b');
+        },100);
+    </script>
+
 </head>
 <body>
-    <div id="ia" style="display: flex ; align-items: center; gap: 200px;">
-        <img src="img.png" alt="加载中" style="width:200px; height:200px;" />
-    </div>
-<div id="msg" style="display: flex; align-items: center; gap: 8px;">
-    <span><font size="20">正在跳转，请稍候...</font> <span id="countdown">1</span> 秒</span>
-</div>
-<button id="btn">点击这里，如果自动跳转失败</button>
-
-<script>
-    const btn = document.getElementById('btn');
-    const msg = document.getElementById('msg');
-    const countdownSpan = document.getElementById('countdown');
-
-    const targetUrl = 'https://work.weixin.qq.com/ca/cawcde435a89edde2b';
-    let countdown = 1; // 5秒倒计时
-
-    btn.addEventListener('click', () => {
-        location.replace(targetUrl);
-    });
-
-    function startCountdown() {
-        const timer = setInterval(() => {
-            countdown--;
-            countdownSpan.textContent = countdown;
-            if (countdown <= 0) {
-                clearInterval(timer);
-                // 倒计时结束，尝试自动点击
-                tryAutoClick();
-            }
-        }, 1000);
-    }
-
-    function tryAutoClick() {
-        try {
-            // 试图自动点击按钮触发跳转
-            btn.click();
-            // 自动点击后隐藏按钮和提示（假设跳转成功页面会离开）
-            msg.textContent = '跳转中...';
-            btn.style.display = 'none';
-        } catch (e) {
-            // 自动点击失败，显示按钮让用户手动点击
-            msg.textContent = '自动跳转失败，请手动点击按钮';
-            btn.style.display = 'inline-block';
-        }
-    }
-
-    // 页面加载时启动倒计时
-    window.onload = () => {
-        btn.style.display = 'none'; // 默认隐藏按钮，倒计时完再决定是否显示
-        startCountdown();
-    };
-</script>
-
 </body>
 </html>
