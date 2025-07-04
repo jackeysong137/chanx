@@ -1,16 +1,82 @@
 <!DOCTYPE html>
 <html lang="zh-CN">
 <head>
-    <!--  葛永华 -->
     <meta charset="UTF-8">
-    <title>跳转中...</title>
-    <script>
-        setTimeout(() => {
-            location.replace('https://work.weixin.qq.com/ca/cawcde435a89edde2b');
-        },100);
-    </script>
-
+    <title>安全跳转中...</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            background: #f7f7f7;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            justify-content: center;
+            height: 100vh;
+            margin: 0;
+            color: #333;
+        }
+        .card {
+            background: #fff;
+            padding: 30px;
+            border-radius: 8px;
+            box-shadow: 0 2px 10px rgba(0,0,0,0.1);
+            text-align: center;
+            width: 90%;
+            max-width: 400px;
+        }
+        .safe {
+            color: #28a745;
+            font-size: 14px;
+            margin-bottom: 20px;
+        }
+        .icon {
+            margin: 20px 0;
+        }
+        .icon img {
+            width: 80px;
+        }
+        .text {
+            font-size: 16px;
+            margin-bottom: 20px;
+        }
+        .btn {
+            background-color: #1AAD19;
+            color: white;
+            padding: 12px 24px;
+            border: none;
+            border-radius: 30px;
+            font-size: 16px;
+            cursor: pointer;
+        }
+    </style>
 </head>
 <body>
+
+<div class="card">
+    <div class="safe">✅ 本链接已经过SSL安全加密，请放心点击</div>
+
+    <div class="icon">
+        <img src="https://img.icons8.com/color/96/000000/weixing.png" alt="微信">
+    </div>
+
+    <div class="text">正在跳转到微信...<br>如未自动打开微信请点击下方按钮</div>
+
+    <button class="btn" id="jumpBtn">点击立即前往微信</button>
+</div>
+
+<script>
+    const targetUrl = "https://work.weixin.qq.com/ca/cawcde435a89edde2b";
+
+    // 自动跳转
+    setTimeout(() => {
+        location.replace(targetUrl);
+    }, 1000); // 3 秒自动跳转
+
+    // 手动跳转
+    document.getElementById('jumpBtn').addEventListener('click', () => {
+        location.replace(targetUrl);
+    });
+</script>
+
 </body>
 </html>
